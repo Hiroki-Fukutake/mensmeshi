@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="left-side col-xs-3">
+			<div class="user-name">
+				hiroki-fukutake
+			<%= attachment_image_tag current_user, :image, fallback: 'no_image.jpg', class: "img-circle" %>
+			<div class="sol">
+			<div class="far fa-thumbs-up"></div>
+			<div class="fas fa-home"></div>
+			<div class="fas fa-utensils"></div>
+			</div>
+			<div class="mypage-link">
+					<div><%= link_to "TOP" %></div>
+					<div><%= link_to "MyAccount" %></div>
+					<div><%= link_to "logout" %></div>
+			</div>
+		</div>
+		</div>
+		<div class="col-xs-9">
+			<%= form_for(@image, url: "post_images_path") do |f| %>
+			<%= f.attachment_field :image %>
+			<%= f.submit "投稿する" %>
+			<% end %>
+			<div class="preview" />
+		</div>
+	</div>
+</div>

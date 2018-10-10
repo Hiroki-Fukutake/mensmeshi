@@ -1,0 +1,92 @@
+// Place all the styles related to the front::post_images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.header {
+	background-color: #000000;
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+.header-link-left {
+	position: absolute;
+	right: 110px;
+	top:5px;
+	padding-top: 15px;
+}
+.header-link-right {
+	position: absolute;
+	right: 30px;
+	top: 5px;
+	padding-top: 15px;
+}
+.header-link-left a {
+	color: #ffffff;
+}
+.header-link-right a {
+	color: #ffffff;
+}
+img {
+	border-radius: 50%;
+	height: 55px;
+	width: 57px;
+	margin: 2px 0 0 15px;
+}
+.left-side {
+	background-color: #000000;
+	height: 600px;
+}
+table {
+	margin: 0 auto;
+}
+.table {
+	margin: 0 auto;
+	padding-top: 80px;
+}
+
+table img {
+	width: 150px;
+	height: auto;
+	border-radius: 0;
+}
+
+table h5 {
+	text-align: center;
+}
+
+.image img {
+	width: 400px;
+	height: auto;
+	border-radius: 0;
+	margin-left: 120px;
+	padding-top: 100px;
+}
+.comment-table {
+	padding-top: 100px;
+}
+.comment-table img{
+	float: left;
+}
+.comment-table div {
+
+}
+
+.name {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+.comment {
+	font-size: 20px;
+}
+.comment-name {
+	float: left;
+	margin-right: 10px;
+}
+.comment-box {
+	padding-top: 10px;
+}

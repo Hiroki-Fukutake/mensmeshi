@@ -1,0 +1,16 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+	background-color: #000000;
+	height: 600px;
+}
+
+.top-image img{
+	display: block;
+    margin: 0 auto;
+    line-height: 20px;
+    height: 600px;
+    width: 600px;
+}
