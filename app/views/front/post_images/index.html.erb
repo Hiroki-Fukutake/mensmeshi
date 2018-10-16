@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag 'front/post_images' %>
+
+<%= render 'front/post_images/header' %>
+<div class="title"><h1>料理一覧</h1></div>
+<!-- <div class="table">
+	<table>
+		<tbody> -->
+		<div class="box1">
+			<% @image.each do |i| %>
+			<div class="box">
+				<%= attachment_image_tag i, :image, class: "image"  %>
+				<div><%= i.user.name %></div>
+				<div><%= simple_time(i.created_at) %></div>
+				<% if user_signed_in? %>
+					<% if i.favorited_by?(current_user) %>
+					  <p>
+					    <%= link_to front_post_image_favorites_path(i), method: :delete do %>
+					      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					      <%= i.favorites.count %>
+					    <% end %>
+					  </p>
+						<% else %>
+					  <p>
+					    <%= link_to front_post_image_favorites_path(i), method: :post do %>
+					      <i class="fa fa-heart" aria-hidden="true"></i>
+					      <%= i.favorites.count %>
+					    <% end %>
+					  </p>
+					<% end %>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+		<!-- </tbody>
+	</table>
+</div> -->
+
+
+
+
+

@@ -1,0 +1,96 @@
+// Place all the styles related to the front::users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-name {
+	color: #ffffff;
+	text-align: center;
+	padding-top: 30px;
+}
+.img-circle {
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin: 0 auto;
+}
+
+.sol {
+	margin-top: 30px;
+}
+
+.sol div {
+	width: 33%;
+	float: left;
+	font-size: 30px;
+}
+.sol div:nth-child(1){
+	color: #ffd700;
+}
+.sol div:nth-child(2){
+	color: #008000;
+}
+.sol div:nth-child(3){
+	color: #b22222;
+}
+.mypage-link a {
+	color: #ffffff;
+}
+
+.mypage-link div:nth-child(1) {
+	display: block;
+	margin-top: 60px;
+	width: 50%;
+	float: left;
+}
+.mypage-link div:nth-child(2) {
+	display: inline-block;
+	margin-top: 60px;
+}
+.mypage-link div:nth-child(3) {
+	display: inline-block;
+	width: 50%;
+	float: left;
+	margin: 10px 0;
+}
+.mypage-link div:nth-child(4) {
+	display: inline-block;
+	width: 50%;
+	margin: 10px 0;
+}
+.preview img {
+	width: 300px;
+	height: auto;
+	border-radius: inherit;
+	margin: 0 auto;
+}
+
+.image-preview {
+	width: 300px;
+	height: auto;
+	background-color: #ffffff;
+	margin: 80px auto 10px auto;
+	border:dotted 1px;
+}
+.images {
+	border-radius: 0px;
+}
+.my-images {
+	border-radius: 0px;
+	width: 200px;
+	height: auto;
+}
+
+.field {
+	margin: 0 auto;
+	text-align: center;
+}
+.field input {
+	margin: 0 auto;
+}
+
+.edit-name-form {
+	width: 150px;
+}
+.edit-age-form {
+	width: 60px;
+}

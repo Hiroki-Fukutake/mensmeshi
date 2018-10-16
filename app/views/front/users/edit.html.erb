@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'front/users' %>
+
+<div class="container">
+	<div class="row">
+		<%= render 'front/users/user_side' %>
+		<div class="col-xs-9">
+			<h1>Profile</h1>
+			<%= form_for (@user), url: front_user_path do |f| %>
+			<%= f.label :name, "name" %>
+			<%= f.text_field :name, class: "edit-name-form form-control" %>
+			<%= f.label :age, "age" %>
+			<%= f.number_field :age, class: "edit-age-form form-control" %>
+			<div class="preview" ></div>
+			<%= f.attachment_field :profile_image %>
+			<%= f.submit "update", class: "btn btn-default" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag 'front/users' %>
+<div class="container">
+	<%= render 'front/users/user_side' %>
+	<div class="col-xs-9">
+		<h1>My image</h1>
+		<% @images.each do |i| %>
+			<%= attachment_image_tag i, :image, class: "my-images" %><br>
+			<%= simple_time(i.created_at) %><br>
+			<%= link_to "削除", front_user_path(i.id), method: :delete %>
+		<% end %>
+	</div>
+</div>

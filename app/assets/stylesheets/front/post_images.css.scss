@@ -1,0 +1,213 @@
+// Place all the styles related to the front::post_images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title h1{
+	color: #000000;
+	padding-top: 80px;
+	text-align: center;
+}
+
+.header {
+	background-color: #000000;
+	height: 70px;
+	position: fixed;
+	top: -10px;
+	width: 100%;
+	z-index: 1;
+}
+.header-list {
+	float: right;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+.header-list a {
+	margin: 0 20px;
+	color: #ffffff;
+}
+
+.header-image img {
+	border-radius: 50%;
+	height: 55px;
+	width: 57px;
+	margin: 12px 0 0 15px;
+}
+.box1 {
+	text-align: center;
+	width: 1100px;
+	margin: 0 auto;
+}
+.box {
+	display: inline-block;
+}
+
+.box img {
+	width: auto;
+	height: 200px;
+}
+.box div {
+	text-align: center;
+	width: 200px;
+}
+.left-side {
+	background-color: #000000;
+	height: 800px;
+}
+table {
+	margin: 0 10px;
+}
+.table {
+	margin: 0 24%;
+	padding-top: 80px;
+	border: 1px #000000;
+	display: flex;
+}
+
+table img {
+	width: 150px;
+	height: auto;
+	border-radius: 0;
+}
+
+table h5 {
+	text-align: center;
+}
+
+tbody td {
+	text-align: center;
+}
+
+.image img {
+	width: 400px;
+	height: auto;
+	border-radius: 0;
+	margin-left: 120px;
+	padding-top: 100px;
+}
+.comment-table {
+	padding-top: 100px;
+}
+.comment-table img{
+	float: left;
+}
+.comment-table div {
+
+}
+
+.name {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+.comment {
+	font-size: 20px;
+}
+.comment-name {
+	float: left;
+	margin-right: 10px;
+}
+.comment-box {
+	padding-top: 10px;
+}
+
+
+
+/*Toggle menu*/
+
+$lred:#E57373;
+$red:#F44336;
+
+@mixin transition($in) {
+    transition:$in;
+    -webkit-transition:$in;
+    -moz-transition:$in;
+    -o-transition:$in;
+    -ms-transition:$in;
+}
+
+
+
+#mmeennuu {
+    display:none;
+}
+
+#mmeennuu:checked ~ .menu {
+
+    width:500px;
+    border-radius:5px;
+    background-color:transparent;
+    border:3px solid $red;
+    height:52px;
+
+    &>ul {
+        display:block;
+        opacity:1;
+    }
+    &>.barry {
+        display:none;
+    }
+}
+
+.menu {
+    display:block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width:50px;
+    height:50px;
+    background-color:$red;
+    border:3px solid transparent;
+    border-radius:50%;
+    overflow:hidden;
+    cursor:pointer;
+    @include transition(all 0.5s ease-in-out);
+
+    div.barry {
+        width:40px;
+        margin:12px 5px;
+
+
+        .bar {
+            display:block;
+            width:82%;
+            height:3px;
+            margin-top:3px;
+            border-radius:2px;
+            background-color:#fff;
+        }
+    }
+
+    ul {
+        opacity:0;
+        display:none;
+        @include transition(all 0.5s ease-in-out);
+        list-style-type:none;
+        padding:0;
+        width:500px;
+        text-align:center;
+        margin-bottom: 0;
+
+        li {
+            display:inline-block;
+            a {
+                text-decoration:none;
+                display:inline-block;
+                padding:9px 25px;
+                color:$red;
+                font-size:15px;
+                @include transition(all 0.3s ease-in-out);
+                border:3px solid transparent;
+                border-radius:5px;
+
+                &:hover {
+                    border-color:$red;
+                }
+
+                &:target {
+                    border-bottom-color:$red;
+                }
+            }
+        }
+    }
+}

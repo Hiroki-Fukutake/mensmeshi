@@ -1,0 +1,18 @@
+<div class="left-side col-xs-3">
+	<div class="user-name">
+		<%= current_user.name %>
+		<%= attachment_image_tag current_user, :profile_image, fallback: 'no_image.jpg', class: "img-circle" %>
+		<div class="sol">
+			<div class="far fa-thumbs-up"></div>
+			<div class="fas fa-home"></div>
+			<div class="fas fa-utensils"></div>
+		</div>
+		<div class="mypage-link">
+			<div><%= link_to "TOP", front_post_images_path %></div>
+			<div><%= link_to "ProfileEdit", edit_front_user_path(current_user.id) %></div>
+			<div><%= link_to "Post", new_front_user_path %></div>
+			<div><%= link_to "logout" , destroy_user_session_path, method: :delete, class: "logout"%></div>
+			<div><%= link_to "My images", front_users_path %></div>
+		</div>
+	</div>
+</div>
