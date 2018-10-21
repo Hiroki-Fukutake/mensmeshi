@@ -1,14 +1,21 @@
 <%= stylesheet_link_tag 'front/post_images' %>
 
 <%= render 'front/post_images/header' %>
-<div class="title"><h1>料理一覧</h1></div>
-<!-- <div class="table">
-	<table>
-		<tbody> -->
-		<div class="box1">
-			<% @image.each do |i| %>
-			<div class="box">
-				<%= attachment_image_tag i, :image, class: "image"  %>
+	<div class="sign-background"></div>
+		<%= render 'front/post_images/modal' %>
+		<div class="title">
+			<h1>料理一覧</h1>
+		</div>
+		<div class="cooks">
+			<% @images.each do |i| %>
+			<div class="cook-images">
+				<% if user_signed_in? %>
+					<%= link_to front_post_image_path(i) do %>
+					<%= attachment_image_tag i, :image, class: "image"  %>
+					<% end %>
+				<% else %>
+					<%= attachment_image_tag i, :image, class: "image"  %>
+				<% end %>
 				<div><%= i.user.name %></div>
 				<div><%= simple_time(i.created_at) %></div>
 				<% if user_signed_in? %>
@@ -31,9 +38,8 @@
 			</div>
 			<% end %>
 		</div>
-		<!-- </tbody>
-	</table>
-</div> -->
+
+
 
 
 

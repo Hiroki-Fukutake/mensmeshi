@@ -13,8 +13,7 @@
 //= require activestorage
 //= require jquery
 //= require rails-ujs
-//= require jquery.turbolinks
-//= require turbolinks
+//= require jquery.slick
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -23,7 +22,7 @@ $(function(){
   $('form').on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
-        $preview = $(".preview");
+        $preview = $(".profile-preview");
         t = this;
 
     // 画像ファイル以外の場合は何もしない
@@ -40,7 +39,7 @@ $(function(){
         $preview.append($('<img>').attr({
                   src: e.target.result,
                   width: "150px",
-                  class: "preview",
+                  class: "profile-preview",
                   title: file.name
               }));
       };
@@ -50,52 +49,58 @@ $(function(){
   });
 
 
-  // skippr
-  // $("document").ready(function() {
-
-  //   // オプションを指定してSkipprの実行
-  //   $(".theTarget").skippr({
-  //       // スライドショーの変化 ("fade" or "slide")
-  //       transition : 'fade',
-  //       // 変化に係る時間(ミリ秒)
-  //       speed : 50,
-  //       // easingの種類
-  //       easing : 'easeOutQuart',
-  //       // ナビゲーションの形("block" or "bubble")
-  //       navType : 'block',
-  //       // 子要素の種類("div" or "img")
-  //       childrenElementType : 'div',
-  //       // ナビゲーション矢印の表示(trueで表示)
-  //       arrows : true,
-  //       // スライドショーの自動再生(falseで自動再生なし)
-  //       infinite : false,
-  //       autoPlay : true,
-  //       // 自動再生時のスライド切替間隔(ミリ秒)
-  //       autoPlayDuration : 4000,
-  //       // キーボードの矢印キーによるスライド送りの設定(trueで有効)
-  //       keyboardOnAlways : true,
-  //       // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
-  //       hidePrevious : false
-  //   });
-  // });
-
-// $('.single-item-rtl').slick({
-//     rtl: true
-//     });
-
-
-
-  $('#sampleButton').click( function () {
-    $('#sampleModal').modal();
+// sign_in sign_up モーダル
+  $(function() {
+    $('.modals').click(function(){
+      $('.sign-background').show();
+      $('.sign-modal-box').fadeIn(1000);
+      if ($(this).hasClass('sign_up')){
+         $('.sign-up-form').fadeIn(1000);
+      } else if($(this).hasClass('sign_in')){
+         $('.sign-in-form').fadeIn(1000);
+      } else {
+        $('.sign-background').hide();
+        $('.sign-modal-box').hide();
+      }
+    })
+    $('.sign-background').click(function(e){
+      if (! $(e.target).closest('.sign-modal-box').length) {
+         $('.sign-background').fadeOut(1000);
+         $('.sign-modal-box').fadeOut(1000);
+         $('.sign-up-form').fadeOut(1000);
+         $('.sign-in-form').fadeOut(1000);
+      }
+    })
   });
 
-  // $(function(){
-  //   $('.slider').slick();
+// 画像投稿用　モーダル
 
-  // });
+  $(function() {
+    $('.post').click(function(){
+      $('.post-wrapper').fadeIn(500);
+      $('.post-wrapper').fadeIn(500);
+      $('.post-modal').fadeIn(500);
+    })
+    $('.remove-icon').click(function(){
+      $('.post-wrapper').fadeOut(500);
+      $('.post-modal').fadeOut(500);
+    })
+  });
+
+
+// スライドショー
   $(function(){
-    $('#top-image').not('.slick-initialized').slick({});
+    $('.slider').slick({
+      autoplay: true,
+      autoplaySpeed: 0,
+      arrows: false,
+      fade: true,
+      speed: 5000
+    });
   });
+
+
+
 
 
 

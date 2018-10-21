@@ -18,12 +18,27 @@
 	border-radius: 0;
 	width: auto;
 }
-
-/**.single-item-rtl div {
-	background-size: contain;
-	background-repeat: no-repeat;
-}*/
-
+.slider {
+	margin-bottom: 0;
+}
+.slider img {
+	width: auto;
+	height: 700px;
+	margin: 0 auto;
+}
+.slider-top {
+	width: 900px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.site-in {
+	text-align: center;
+	font-size: 30px;
+}
+.site-in a {
+	color: #ffffff;
+	margin-bottom: 20px;
+}
 .logo{
 	background-image: url(../img/logo.jpg);
 	background-size: cover;

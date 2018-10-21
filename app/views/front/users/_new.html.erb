@@ -1,0 +1,16 @@
+
+<div class="post-wrapper"></div>
+	<div class="post-modal">
+		<div class="post-box">
+			<div class="remove-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+			<div class="image-preview">
+				<div class="preview" ></div>
+			</div>
+			<div class="image-field">
+				<%= form_for(@image, url: front_users_path) do |f| %>
+				<%= f.attachment_field :image %>
+				<%= f.submit "投稿する" %>
+				<% end %>
+			</div>
+		</div>
+	</div>

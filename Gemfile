@@ -70,4 +70,5 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'hirb'
 gem 'hirb-unicode'
+gem 'jquery-slick-rails'
 

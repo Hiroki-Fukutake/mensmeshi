@@ -1,0 +1,24 @@
+<%= render 'admin/users/header' %>
+<div class="users-field">
+	<table>
+		<caption>table title </caption>
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>age</th>
+				<th>Posts_count</th>
+				<th>Last login</th>
+			</tr>
+		</thead>
+		<% @user.each do |user| %>
+		<tbody>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= user.age %></td>
+				<td><%= user.post_images.count %></td>
+				<td><%= user.current_sign_in_at %></td>
+			</tr>
+		</tbody>
+		<% end %>
+	</table>
+</div>

@@ -7,12 +7,12 @@
 			<div class="fas fa-home"></div>
 			<div class="fas fa-utensils"></div>
 		</div>
-		<div class="mypage-link">
-			<div><%= link_to "TOP", front_post_images_path %></div>
-			<div><%= link_to "ProfileEdit", edit_front_user_path(current_user.id) %></div>
-			<div><%= link_to "Post", new_front_user_path %></div>
-			<div><%= link_to "logout" , destroy_user_session_path, method: :delete, class: "logout"%></div>
-			<div><%= link_to "My images", front_users_path %></div>
-		</div>
 	</div>
+		<div class="mypage-link">
+			<button class="raise"><%= link_to "TOP", front_post_images_path %></button>
+			<button class="raise"><%= link_to "MyImages", front_users_path %></button>
+			<button class="post">Post</button>
+			<button class="raise"><%= link_to "ProfileEdit", edit_front_user_path(current_user.id) %></button>
+			<button class="raise"><%= link_to "logout" , destroy_user_session_path, method: :delete, class: "logout"%></button>
+		</div>
 </div>

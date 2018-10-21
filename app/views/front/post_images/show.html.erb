@@ -1,24 +1,23 @@
 <%= stylesheet_link_tag 'front/post_images' %>
-<div class="header">
-		<%= image_tag("logo.jpg") %>
-<span class="header-link-left"><%= link_to "top" %></span>
-<span class="header-link-right"><%= link_to "logout" %></span>
+<%= render 'front/post_images/header' %>
+<div class="post-image", style="padding-top: 100px;">
+	<%= attachment_image_tag @image, :image %>
 </div>
-<div class="container">
-	<div class="col-xs-6">
-		<div class="image">
-		<%= image_tag("IMG_1786.JPG") %>
+<div class="comment-box">
+<%= form_for [@image, @comment], url: front_post_image_post_comments_path(@image.id) do |c| %>
+	<%= c.text_field :comment, class: "form-control" %>
+	<%= c.submit "コメントする" %>
+<% end %>
+</div>
+
+<div class="comment-field">
+	<% @image.post_comments.each do |comment| %>
+		<div><%= attachment_image_tag comment.user, :profile_image, class: "comment-user-profile-image" %></div>
+			<div class="comment"><%= comment.comment %></div>
+		<div class="comment-information">
+			<div class="comment-name"><%= comment.user.name %></div>
+			<div><%= simple_time(comment.created_at) %></div>
 		</div>
-		<div class="name"><h5>username</h5></div>
-	</div>
-	<div class="col-xs-6">
-		<div class="comment-table">
-			<%= image_tag("logo.jpg") %>
-			<div class="comment-box">
-				<div class="comment">comment</div>
-				<div class="comment-name">name</div>
-				<div>date</div>
-			</div>
-		</div>
-	</div>
+
+	<% end %>
 </div>

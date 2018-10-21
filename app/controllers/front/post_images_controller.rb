@@ -1,15 +1,15 @@
 class Front::PostImagesController < ApplicationController
-  def new
-  end
+
   def index
-  	@image = PostImage.all
+  	@images = PostImage.all
   end
   def show
+    @image = PostImage.find(params[:id])
+    @comment = PostComment.new
   end
 
-
   protected
-  def post_image_params
-  	params.require(:post_image).permit(:image ,:created_at)
+  def post_comment_params
+    params.require(:post_comment).permit(:comment, :user_id, :image_id)
   end
 end

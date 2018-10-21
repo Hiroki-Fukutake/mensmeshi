@@ -1,19 +1,22 @@
 <div class="header">
 	<div class = "header-image">
-		<%= image_tag("img/logo.jpg") %>
+		<%= link_to image_tag("img/header-logo.jpg"), root_path %>
+		<% if user_signed_in? %>
+		<div class="current_user_name">ようこそ　<span><%= current_user.name %></span>　さん</div>
+		<% end %>
 	</div>
+
 	<% if user_signed_in? %>
 	<input type='checkbox' id='mmeennuu'>
 		<label class='menu' for='mmeennuu'>
-
-		<div class='barry'>
-		    <span class='bar'></span>
-		    <span class='bar'></span>
-		    <span class='bar'></span>
-		    <span class='bar'></span>
-		</div>
+			<div class='barry'>
+			    <span class='bar'></span>
+			    <span class='bar'></span>
+			    <span class='bar'></span>
+			    <span class='bar'></span>
+			</div>
 			<ul>
-			    <li><%= link_to "TOP" %></li>
+			    <li><%= link_to "TOP", front_post_images_path %></li>
 			    <li><%= link_to "MY Page", front_users_path %></li>
 			    <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
 			    <li></li>
@@ -22,25 +25,19 @@
 	<% else %>
 	<input type='checkbox' id='mmeennuu'>
 		<label class='menu' for='mmeennuu'>
-
-		<div class='barry'>
-		    <span class='bar'></span>
-		    <span class='bar'></span>
-		    <span class='bar'></span>
-		    <span class='bar'></span>
-		</div>
+			<div class='barry'>
+			    <span class='bar'></span>
+			    <span class='bar'></span>
+			    <span class='bar'></span>
+			    <span class='bar'></span>
+			</div>
 			<ul>
-			    <li><%= link_to "TOP" %></li>
-			    <li><%= link_to "sign_up", new_user_registration_path %></li>
-			    <li><%= link_to "sign_in", new_user_session_path %></li>
+			    <li><%= link_to "Top", root_path, class: "top-link modals" %></li>
+			    <li><div class="sign_up modals">Sign_up</div></li>
+			    <li><div class="sign_in modals">Log_in</div></li>
 			    <li></li>
 			</ul>
 		</label>
-		<!-- <span class="header-link-left">
-			<%= link_to "sign_up", class: "btn btn-default" %>
-		</span>
-		<span class="header-link-right">
-			<%= link_to "sign_in" %> -->
-		</span>
 	<% end %>
 </div>
+

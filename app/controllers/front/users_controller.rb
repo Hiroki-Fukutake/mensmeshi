@@ -1,6 +1,6 @@
 class Front::UsersController < ApplicationController
   def new
-  	@image = PostImage.new
+  	# @image = PostImage.new
   end
 
   def create
@@ -10,7 +10,7 @@ class Front::UsersController < ApplicationController
   	redirect_to front_users_path
   end
   def index
-    # @images = PostImage.all
+    @image = PostImage.new
     @images = current_user.post_images
   end
 

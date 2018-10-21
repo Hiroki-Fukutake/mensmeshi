@@ -16,6 +16,7 @@
 
 .sol {
 	margin-top: 30px;
+	height: 200px;
 }
 
 .sol div {
@@ -32,44 +33,70 @@
 .sol div:nth-child(3){
 	color: #b22222;
 }
-.mypage-link a {
+
+.mypage-link {
+	text-align: center;
+	padding-bottom: 20px;
+}
+.mypage-link div {
+	margin: 20px 0;
 	color: #ffffff;
+
+}
+.mypage-link a {
+	color:#ffffff;
 }
 
-.mypage-link div:nth-child(1) {
-	display: block;
-	margin-top: 60px;
-	width: 50%;
-	float: left;
+button {
+	background:none;
+	border: none;
+	padding: 10px 0;
+	width: 100%;
 }
-.mypage-link div:nth-child(2) {
-	display: inline-block;
-	margin-top: 60px;
-}
-.mypage-link div:nth-child(3) {
-	display: inline-block;
-	width: 50%;
-	float: left;
+.post {
+	color:#ffffff;
+	border: 2px solid #ffffff;
+	padding: 10px 130px;
 	margin: 10px 0;
+	font-family: Courier;
 }
-.mypage-link div:nth-child(4) {
+.raise a{
+	color:#ffffff;
+	border: 2px solid #ffffff;
+	padding: 10px 0px;
 	display: inline-block;
-	width: 50%;
-	margin: 10px 0;
+	width: 100%;
+	font-family: Courier;
 }
+
+.post:hover{
+	background-color: #ffffff;
+	box-shadow: 0 0.5em 0.5em -0.4em rgba(255,241,15,1) var(--hover);
+	transform: translateY(-0.50em);
+	color: #000000;
+}
+
+.raise a:hover {
+	background-color: #ffffff;
+	box-shadow: 0 0.5em 0.5em -0.4em rgba(0,0,255,.1) var(--hover);
+	transform: translateY(-0.50em);
+	color: #000000;
+}
+
 .preview img {
 	width: 300px;
-	height: auto;
-	border-radius: inherit;
 	margin: 0 auto;
+	display: -webkit-box;
+}
+
+.profile-preview img {
+	border-radius: 50%;
 }
 
 .image-preview {
-	width: 300px;
-	height: auto;
-	background-color: #ffffff;
-	margin: 80px auto 10px auto;
-	border:dotted 1px;
+	width: 500px;
+	height: 450px;
+	margin: 30px auto 10px auto;
 }
 .images {
 	border-radius: 0px;
@@ -78,13 +105,21 @@
 	border-radius: 0px;
 	width: 200px;
 	height: auto;
+	margin: 0 auto;
 }
 
-.field {
+.myimage-box {
+	float: left;
+	margin: 0 20px;
+}
+
+
+.image-field {
 	margin: 0 auto;
 	text-align: center;
+	padding-top: 60px;
 }
-.field input {
+.image-field input {
 	margin: 0 auto;
 }
 
@@ -94,3 +129,43 @@
 .edit-age-form {
 	width: 60px;
 }
+
+
+/*post-modal*/
+
+.post-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background-color: #dadada;
+	opacity: .7;
+	display: none;
+}
+
+.post-modal {
+	display: none;
+	z-index: 200;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-top: 50px;
+
+}
+.post-box {
+	height: 650px;
+	width: 500px;
+	margin: 0 auto;
+	background-color: #942321;
+}
+
+.remove-icon {
+	text-align: right;
+}
+
+
+
