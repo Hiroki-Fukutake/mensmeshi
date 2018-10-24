@@ -1,11 +1,18 @@
 <div class="left-side col-xs-3">
 	<div class="user-name">
-		<%= current_user.name %>
-		<%= attachment_image_tag current_user, :profile_image, fallback: 'no_image.jpg', class: "img-circle" %>
+		<div class="profile-name"><%= current_user.name %></div>
+		<div class="profile-image">
+			<%= attachment_image_tag current_user, :profile_image, fallback: 'no_image.jpg', class: "circle" %>
+		</div>
 		<div class="sol">
 			<div class="far fa-thumbs-up"></div>
 			<div class="fas fa-home"></div>
 			<div class="fas fa-utensils"></div>
+		</div>
+		<div class="count">
+			<div class="good"><%= @count %></div>
+			<div class="home-count"><%= @images_count.count %></div>
+			<div class="out-count"><%= @eating_out_count.count %></div>
 		</div>
 	</div>
 		<div class="mypage-link">

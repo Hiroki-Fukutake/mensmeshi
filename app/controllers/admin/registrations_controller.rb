@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Front::RegistrationsController < Devise::RegistrationsController
+class Admin::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -11,29 +11,26 @@ class Front::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
     def create
-      build_resource(sign_up_params)
-      resource.save
-      yield resource if block_given?
-      if resource.persisted?
-        if resource.active_for_authentication?
-          set_flash_message! :notice, :signed_up
-          sign_up(resource_name, resource)
-          respond_with resource, location: after_sign_up_path_for(resource)
-        else
-          set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-          expire_data_after_sign_in!
-          redirect_to front_post_images_path
-          #respond_with resource, location: after_inactive_sign_up_path_for(resource)
-        end
-        else
-          clean_up_passwords resource
-          set_minimum_password_length
-          flash[:sign_up_error] = resource.errors.full_messages
+    build_resource(admin_params)
 
-          redirect_to front_post_images_path
-          # respond_with resource
-        end
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
+      else
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+      end
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
     end
+  end
 
   # GET /resource/edit
   # def edit
@@ -59,11 +56,11 @@ class Front::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-   protected
+  protected
 
-   def sign_up_params
-    params.require(:user).permit(:name,:age,:email,:password,:password_confirmation)
-   end
+  def admin_params
+    params.require(:admin).permit(:name, :email, :password, :password_confirmation)
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

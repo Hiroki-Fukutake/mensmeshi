@@ -22,7 +22,7 @@ $(function(){
   $('form').on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
-        $preview = $(".profile-preview");
+        $preview = $(".preview");
         t = this;
 
     // 画像ファイル以外の場合は何もしない
@@ -38,8 +38,7 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "150px",
-                  class: "profile-preview",
+                  class: "preview",
                   title: file.name
               }));
       };
@@ -73,6 +72,40 @@ $(function(){
     })
   });
 
+
+  // $(function(){
+  //   if ($('.alert').html() !=''){
+  //     $('.sign-background').show();
+  //     $('.sign-modal-box').show();
+  //   if ($(this).hasClass('sign_up')){
+  //     $('.sign-up-form').show();
+  //   } else if($(this).hasClass('sign_in')){
+  //     $('.sign-in-form').show();
+  //   }
+  //   }
+  // });
+
+
+
+
+  $(function() {
+    if ($('.sign-up-alert').html() != '') {
+      $('.sign-background').show();
+      $('.sign-modal-box').show();
+       $('.sign-up-form').show();
+
+    }
+  })
+  $(function() {
+    if ($('.sign-in-alert').html() != '') {
+      $('.sign-background').show();
+      $('.sign-modal-box').show();
+       $('.sign-in-form').show();
+
+    }
+  })
+
+
 // 画像投稿用　モーダル
 
   $(function() {
@@ -88,11 +121,22 @@ $(function(){
   });
 
 
+// 画像編集　モーダル
+
+ $(function(){
+    $('.edit').click(function(){
+      $('.post-edit').fadeIn(500);
+    })
+ })
+
+
+
+
 // スライドショー
   $(function(){
     $('.slider').slick({
       autoplay: true,
-      autoplaySpeed: 0,
+      autoplaySpeed: 2000,
       arrows: false,
       fade: true,
       speed: 5000

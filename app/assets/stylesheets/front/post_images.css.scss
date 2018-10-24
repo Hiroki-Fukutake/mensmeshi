@@ -2,14 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.top-page-image {
+}
+.top-page-image img {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    object-fit: cover;
+    z-index: -5;
+}
 .title h1{
-	color: #000000;
+	color: #ca3030;
 	padding-top: 80px;
 	text-align: center;
 }
 
 .header {
 	background-color: #000000;
+    opacity: 0.9;
 	height: 70px;
 	position: fixed;
 	top: -10px;
@@ -46,30 +58,96 @@ span {
 }
 .cook-images {
 	display: inline-block;
+    margin-bottom: 20px;
 }
 
 .cook-images img {
-	width: auto;
-	height: 200px;
-    margin: 0 auto;
+	width: 200px;
+	height: auto;
+    margin: 10px auto;
 }
-.cook-images div {
+/*.cook-images div {
 	margin: 0;
 
+}*/
+.image-background {
+    background-color: #fffffe;
+    width: 230px;
+    height: 315px;
 }
+
+
+.post-information {
+    color:#fff;
+}
+.blank {
+    display: inline-block;
+}
+
 .left-side {
 	background-color: #000000;
-	height: 800px;
+	/*height: 800px;*/
+    position: fixed;
 }
-/*.post_image {
-    margin-left: 200px;
-    float: left;
-}*/
+.my-images-box {
+    height: 1500px;
+    position: absolute;
+    right: 0;
+}
+.border {
+    border-bottom: 8px dotted #8b4513;
+    clear: both;
+}
+.border-line {
+    border-bottom: 3px solid #800000;
+    width: 800px;
+    margin:0 auto;
+}
+.post-image {
+    padding-top: 100px;
+    display: inline-block;
+    width: 510px;
+    height: 800px;
+    margin-left: 100px;
+    text-align: center;
+}
+.image-title-show {
+    color:#000;
+    width: 500px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #b99999;
+    border-radius: 5px;
+
+}
+.image-user-name {
+    width: auto;
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: left;
+}
+
+.post-time {
+    width: auto;
+    text-align: left;
+}
+
+.image-title {
+    color: #000;
+    overflow: scroll;
+    width: 180px;
+    margin: 0 auto;
+}
+
+.comment-wrappr {
+    width: 800px;
+    position:absolute;
+    padding-top: 100px;
+    display: inline-block;
+}
 .post-image img {
     width: auto;
     height: 500px;
-    float: left;
-    margin-left: 90px;
 }
 
 .image img {
@@ -126,6 +204,7 @@ span {
     width: 50px;
     height: 50px;
     float: left;
+    object-fit: cover;
 }
 .comment-information {
     margin: 0 0 10px 50px;
@@ -166,6 +245,21 @@ span {
 
 .sign-in-form {
     display: none;
+}
+
+.sign-field {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.sign-age-field {
+    width: 70px;
+    margin: 0 auto;
+}
+
+.post-edit {
+    position: absolute;
+    left: 25%;
 }
 
 

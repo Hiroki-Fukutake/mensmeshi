@@ -1,15 +1,34 @@
 <%= stylesheet_link_tag 'front/users' %>
 <%= render 'front/users/new', users: @image %>
+<%= render 'front/users/user_side' %>
 <div class="container">
-	<%= render 'front/users/user_side' %>
-	<div class="col-xs-9">
-		<h1>My image</h1>
+	<div class= "my-images-box col-xs-9">
+		<h1>お家ごはん</h1>
 		<% @images.each do |i| %>
-		<div class="myimage-box">
-			<%= attachment_image_tag i, :image, class: "my-images" %>
-			<div><%= simple_time(i.created_at) %>
-			<%= link_to "削除", front_user_path(i.id), method: :delete %></div>
-		</div>
+			<div class= "myimage-box">
+				<%= link_to edit_front_post_image_path(i) do %>
+				<%= attachment_image_tag i, :image, class: "my-images" %>
+				<% end %>
+				<div class="mypage-image-title"><%= i.title %></div>
+				<div><%= simple_time(i.created_at) %>
+				<%= link_to "削除", front_user_path(i.id), method: :delete %></div>
+			</div>
 		<% end %>
+		<div class="border"></div>
+		<h1>外食</h1>
+		<%# if @eating_out.nil? %>
+			<% @eating_out.each do |e| %>
+				<div class="myimage-box">
+					<%= link_to edit_front_post_image_path(e) do %>
+					<%= attachment_image_tag e, :image, class: "my-images" %>
+					<% end %>
+				<div class="mypage-image-title"><%= e.title %></div>
+				<div><%= simple_time(e.created_at) %>
+					<%= link_to "削除", front_user_path(e.id), method: :delete %></div>
+				</div>
+			<% end %>
+		<%# else %>
+		<!-- <h1>まだ投稿がありません</h1> -->
+		<%# end %>
 	</div>
 </div>

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :category, dependent: :destroy
+  has_many :genre, dependent: :destroy
   attachment :profile_image
 
     def soft_delete

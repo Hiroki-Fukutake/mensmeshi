@@ -1,23 +1,29 @@
 <%= stylesheet_link_tag 'front/post_images' %>
 <%= render 'front/post_images/header' %>
-<div class="post-image", style="padding-top: 100px;">
+<div class="post-image">
 	<%= attachment_image_tag @image, :image %>
+	<h5>Title</h5>
+	<div class="image-title-show"><%= @image.title %></div>
+	<div class="image-user-name">投稿者：<%= @image.user.name %></div>
+	<div class="post-time">投稿日時：<%= simple_time(@image.created_at) %></div>
 </div>
-<div class="comment-box">
-<%= form_for [@image, @comment], url: front_post_image_post_comments_path(@image.id) do |c| %>
-	<%= c.text_field :comment, class: "form-control" %>
-	<%= c.submit "コメントする" %>
-<% end %>
-</div>
-
-<div class="comment-field">
-	<% @image.post_comments.each do |comment| %>
-		<div><%= attachment_image_tag comment.user, :profile_image, class: "comment-user-profile-image" %></div>
-			<div class="comment"><%= comment.comment %></div>
-		<div class="comment-information">
-			<div class="comment-name"><%= comment.user.name %></div>
-			<div><%= simple_time(comment.created_at) %></div>
-		</div>
-
+<div class="comment-wrappr">
+	<div class="comment-box">
+	<%= form_for [@image, @comment], url: front_post_image_post_comments_path(@image.id) do |c| %>
+		<%= c.text_field :comment, class: "form-control" %>
+		<%= c.submit "コメントする" %>
 	<% end %>
+	</div>
+
+	<div class="comment-field">
+		<% @image.post_comments.order(created_at: :desc).each do |comment| %>
+			<div><%= attachment_image_tag comment.user, :profile_image, class: "comment-user-profile-image" %></div>
+				<div class="comment"><%= comment.comment %></div>
+			<div class="comment-information">
+				<div class="comment-name"><%= comment.user.name %></div>
+				<div><%= simple_time(comment.created_at) %></div>
+			</div>
+
+		<% end %>
+	</div>
 </div>

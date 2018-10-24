@@ -7,31 +7,64 @@
 	text-align: center;
 	padding-top: 30px;
 }
-.img-circle {
+.profile-image {
 	width: 200px;
 	height: 200px;
-	display: block;
-	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+	margin:0 auto;
+}
+
+.circle {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
 }
 
 .sol {
-	margin-top: 30px;
-	height: 200px;
+	margin: 30px auto 0 auto;
+	width: 320px;
+	height: 50px;
+}
+.fa-thumbs-up {
+	width: 100px;
+	color:#8b0000;
+}
+
+.fa-home{
+	width: 100px;
+	color:#006400;
+}
+
+.fa-utensils {
+	width: 100px;
+	color:#8b4513;
 }
 
 .sol div {
-	width: 33%;
-	float: left;
 	font-size: 30px;
 }
-.sol div:nth-child(1){
-	color: #ffd700;
+
+.count {
+	display: block;
+	width: 320px;
+	height: 140px;
+	margin: 0 auto;
 }
-.sol div:nth-child(2){
-	color: #008000;
+.good {
+	display: inline-block;
+	width: 100px;
+	font-size: 20px;
 }
-.sol div:nth-child(3){
-	color: #b22222;
+.home-count {
+	display: inline-block;
+	width: 105px;
+	font-size: 20px;
+}
+.out-count {
+	display: inline-block;
+	width: 100px;
+	font-size: 20px;
 }
 
 .mypage-link {
@@ -83,20 +116,33 @@ button {
 	color: #000000;
 }
 
-.preview img {
-	width: 300px;
-	margin: 0 auto;
+.image-preview img {
+	width: 400px;
 	display: -webkit-box;
 }
-
-.profile-preview img {
+.profile-preview {
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	overflow: hidden;
 	border-radius: 50%;
 }
+.profile-preview img {
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+}
+
+.edit-box {
+	position: absolute;
+	left: 25%;
+}
+
 
 .image-preview {
 	width: 500px;
 	height: 450px;
-	margin: 30px auto 10px auto;
+	margin-left: 30px;
 }
 .images {
 	border-radius: 0px;
@@ -108,6 +154,12 @@ button {
 	margin: 0 auto;
 }
 
+.mypage-image-title {
+	overflow: scroll;
+	width: 180px;
+	height: 40px;
+}
+
 .myimage-box {
 	float: left;
 	margin: 0 20px;
@@ -115,13 +167,26 @@ button {
 
 
 .image-field {
-	margin: 0 auto;
+	margin-left: 450px;
 	text-align: center;
-	padding-top: 60px;
+	width: 400px;
+	position: absolute;
+	top: 10%;
 }
 .image-field input {
 	margin: 0 auto;
 }
+
+.title-form {
+	width: 300px;
+	padding-bottom: 5px;
+}
+
+
+select {
+	margin: 10px 0;
+}
+
 
 .edit-name-form {
 	width: 150px;
@@ -158,13 +223,17 @@ button {
 }
 .post-box {
 	height: 650px;
-	width: 500px;
+	width: 900px;
 	margin: 0 auto;
 	background-color: #942321;
+	position: fixed;
+	right: 0;
+	left: 0;
 }
 
 .remove-icon {
 	text-align: right;
+	padding: 5px 5px 0 0;
 }
 
 

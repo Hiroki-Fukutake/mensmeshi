@@ -3,44 +3,96 @@
 <%= render 'front/post_images/header' %>
 	<div class="sign-background"></div>
 		<%= render 'front/post_images/modal' %>
+		<div class="top-page-image">
+			<%= image_tag "img/tool.jpg" %>
+		</div>
 		<div class="title">
-			<h1>料理一覧</h1>
+			<h1>Home Cooking</h1>
 		</div>
 		<div class="cooks">
-			<% @images.each do |i| %>
+			<% @eating_home.each do |i| %>
 			<div class="cook-images">
 				<% if user_signed_in? %>
+				<div class="image-background">
 					<%= link_to front_post_image_path(i) do %>
 					<%= attachment_image_tag i, :image, class: "image"  %>
+						<div class="image-title"><%= i.title %></div>
+					</div>
 					<% end %>
 				<% else %>
+				<div class="image-background">
 					<%= attachment_image_tag i, :image, class: "image"  %>
+						<div class="image-title"><%= i.title %></div>
+					</div>
 				<% end %>
-				<div><%= i.user.name %></div>
-				<div><%= simple_time(i.created_at) %></div>
-				<% if user_signed_in? %>
+				<div class="post-information">
+					<div><%= i.user.name %></div>
+					<div><%= simple_time(i.created_at) %></div>
+				</div>
+				<% if user_signed_in? && i.user.id != current_user.id %>
 					<% if i.favorited_by?(current_user) %>
 					  <p>
 					    <%= link_to front_post_image_favorites_path(i), method: :delete do %>
 					      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-					      <%= i.favorites.count %>
 					    <% end %>
 					  </p>
 						<% else %>
 					  <p>
 					    <%= link_to front_post_image_favorites_path(i), method: :post do %>
 					      <i class="fa fa-heart" aria-hidden="true"></i>
-					      <%= i.favorites.count %>
 					    <% end %>
 					  </p>
 					<% end %>
+					<% elsif user_signed_in? && i.user.id == current_user.id %>
+					<i class="blank"></i>
 				<% end %>
 			</div>
 			<% end %>
 		</div>
-
-
-
+		<div class="border-line"></div>
+		<div class="title">
+			<h1>gaisyoku</h1>
+		</div>
+		<div class="cooks">
+			<% @eating_out.each do |i| %>
+			<div class="cook-images">
+				<% if user_signed_in? %>
+				<div class="image-background">
+					<%= link_to front_post_image_path(i) do %>
+					<%= attachment_image_tag i, :image, class: "image"  %>
+						<div class="image-title"><%= i.title %></div>
+					</div>
+					<% end %>
+				<% else %>
+				<div class="image-background">
+					<%= attachment_image_tag i, :image, class: "image"  %>
+						<div class="image-title"><%= i.title %></div>
+					</div>
+				<% end %>
+				<div class="post-information">
+					<div><%= i.user.name %></div>
+					<div><%= simple_time(i.created_at) %></div>
+				</div>
+				<% if user_signed_in? && i.user.id != current_user.id %>
+					<% if i.favorited_by?(current_user) %>
+					  <p>
+					    <%= link_to front_post_image_favorites_path(i), method: :delete do %>
+					      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					    <% end %>
+					  </p>
+						<% else %>
+					  <p>
+					    <%= link_to front_post_image_favorites_path(i), method: :post do %>
+					      <i class="fa fa-heart" aria-hidden="true"></i>
+					    <% end %>
+					  </p>
+					<% end %>
+					<% elsif user_signed_in? && i.user.id == current_user.id %>
+					<i class="blank"></i>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
 
 
 

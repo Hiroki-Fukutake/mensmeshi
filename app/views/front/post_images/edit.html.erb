@@ -1,0 +1,12 @@
+<%= render 'front/users/user_side' %>
+<div class="post-edit">
+	<%= form_for(@image, url: front_post_image_path) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :カテゴリー %>
+	<%= f.select :category_id, [["お家ごはん","1"],["外食","2"]],{class: 'select-form form-control'} %>
+	<%= f.label :ジャンル %>
+	<%= f.select :genre_id, [["和食","1"],["洋食・西洋","2"],["中華","3"],["イタリアン","4"],["フレンチ","5"],["鍋","6"],["焼肉・ステーキ","7"],["ラーメン・麺類","8"],["寿司","9"],["アジア・エスニック","10"],["中華","11"],["イタリアン","12"],["その他","13"]],{class: 'select-form form-control'} %>
+	<%= f.submit "更新する", class: "btn btn-default" %>
+	<% end %>
+</div>
