@@ -14,13 +14,13 @@
     z-index: -5;
 }
 .title h1{
-	color: #ca3030;
+	color: #ec993e;
 	padding-top: 80px;
 	text-align: center;
 }
 
 .header {
-	background-color: #000000;
+	background-color: #2f1313;
     opacity: 0.9;
 	height: 70px;
 	position: fixed;
@@ -56,9 +56,14 @@ span {
 	width: 1100px;
 	margin: 0 auto;
 }
+.cooks-ranking {
+    text-align: center;
+    width: 710px;
+    margin: 0 auto;
+}
 .cook-images {
 	display: inline-block;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .cook-images img {
@@ -66,27 +71,39 @@ span {
 	height: auto;
     margin: 10px auto;
 }
-/*.cook-images div {
-	margin: 0;
 
-}*/
+.cook-images p {
+    display: inline;
+}
+
 .image-background {
     background-color: #fffffe;
     width: 230px;
     height: 315px;
+    border-radius: 2%;
 }
 
 
 .post-information {
     color:#fff;
+    background-color: #520707;
+    border-radius: 10px;
+}
+
+.fa-heart {
+    color: #2196f3;
+}
+
+.fa-comments {
+    color: #fff;
 }
 .blank {
     display: inline-block;
 }
 
+
 .left-side {
-	background-color: #000000;
-	/*height: 800px;*/
+	background-color: #2f1313;
     position: fixed;
 }
 .my-images-box {
@@ -132,6 +149,18 @@ span {
     text-align: left;
 }
 
+.back-btn {
+    text-align: left;
+    margin-top: 5px;
+
+}
+.back-btn a {
+    background-color: #c54d43;
+    color: #fff;
+    border-radius: 10%;
+    font-size: 20px;
+}
+
 .image-title {
     color: #000;
     overflow: scroll;
@@ -146,8 +175,9 @@ span {
     display: inline-block;
 }
 .post-image img {
-    width: auto;
     height: 500px;
+    width: inherit;
+    object-fit: contain;
 }
 
 .image img {
@@ -174,28 +204,28 @@ span {
 }
 .comment {
     display: inline-block;
-	font-size: 20px;
+	font-size: 15px;
     width: 700px;
     height: 75px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    overflow: scroll;
 }
 .comment-name {
     float: left;
-    margin-right: 20px;
 }
 .comment-box {
-	padding-top: 10px;
-    width: 800px;
-    display: inline-block;
-    padding-left: 100px;
+    padding-left: 60px;
     padding-bottom: 20px;
 }
-.comment-field {
-    width: 800px;
-    height: auto;
-    display: inline-block;
-    padding-left: 50px;
+.comment-box form {
+    width: 700px;
+}
+
+
+.comment-user-image {
+    margin-right: 10px;
+    float: left;
 }
 
 
@@ -205,9 +235,19 @@ span {
     height: 50px;
     float: left;
     object-fit: cover;
+    margin-top: 17px;
 }
 .comment-information {
-    margin: 0 0 10px 50px;
+    margin: 0 0 10px 70px;
+}
+
+.comment-time {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.comment-delete {
+    display: inline-block;
 }
 
 /* header modal*/
@@ -235,8 +275,9 @@ span {
     display: none;
     text-align: center;
     margin: 0 auto;
-    background-color: #dadada;
+    background-color: #c3985f;
     margin-top: 100px;
+    border-radius: 10%;
 }
 
 .sign-up-form {
@@ -260,6 +301,38 @@ span {
 .post-edit {
     position: absolute;
     left: 25%;
+}
+
+.favorite-count, .favorite-count a{
+    color :#e2f502;
+}
+
+.favorite-count {
+    display: inline-block;
+}
+
+.rank-list {
+    text-align: center;
+}
+.rank-list li {
+    color: #fbf706;
+    font-size: 30px;
+    width: 240px;
+    display: inline-block;
+}
+
+.rank-list2 {
+    text-align: center;
+    position: relative;
+    top: 395px;
+    height: 0;
+}
+
+.rank-list2 li {
+    color: #fbf706;
+    font-size: 30px;
+    width: 240px;
+    display: inline-block;
 }
 
 

@@ -4,7 +4,7 @@
 	<div class="sign-background"></div>
 		<%= render 'front/post_images/modal' %>
 		<div class="top-page-image">
-			<%= image_tag "img/tool.jpg" %>
+			<%= image_tag "/images/img/tool.jpg" %>
 		</div>
 		<div class="title">
 			<h1>Home Cooking</h1>
@@ -12,19 +12,10 @@
 		<div class="cooks">
 			<% @eating_home.each do |i| %>
 			<div class="cook-images">
-				<% if user_signed_in? %>
-				<div class="image-background">
-					<%= link_to front_post_image_path(i) do %>
-					<%= attachment_image_tag i, :image, class: "image"  %>
-						<div class="image-title"><%= i.title %></div>
-					</div>
-					<% end %>
-				<% else %>
 				<div class="image-background">
 					<%= attachment_image_tag i, :image, class: "image"  %>
 						<div class="image-title"><%= i.title %></div>
 					</div>
-				<% end %>
 				<div class="post-information">
 					<div><%= i.user.name %></div>
 					<div><%= simple_time(i.created_at) %></div>
@@ -39,11 +30,14 @@
 						<% else %>
 					  <p>
 					    <%= link_to front_post_image_favorites_path(i), method: :post do %>
-					      <i class="fa fa-heart" aria-hidden="true"></i>
+					      <i class="fa fa-heart" aria-hidden="true">いいねする</i>
 					    <% end %>
 					  </p>
 					<% end %>
-					<% elsif user_signed_in? && i.user.id == current_user.id %>
+					<%= link_to front_post_image_path(i) do %>
+						<p><i class="far fa-comments">コメント</i></p>
+					<% end %>
+				<% elsif user_signed_in? && i.user.id == current_user.id %>
 					<i class="blank"></i>
 				<% end %>
 			</div>
@@ -51,7 +45,7 @@
 		</div>
 		<div class="border-line"></div>
 		<div class="title">
-			<h1>gaisyoku</h1>
+			<h1>Eating Out Photo</h1>
 		</div>
 		<div class="cooks">
 			<% @eating_out.each do |i| %>
@@ -83,16 +77,66 @@
 						<% else %>
 					  <p>
 					    <%= link_to front_post_image_favorites_path(i), method: :post do %>
-					      <i class="fa fa-heart" aria-hidden="true"></i>
+					      <i class="fa fa-heart" aria-hidden="true">いいねする</i>
 					    <% end %>
 					  </p>
 					<% end %>
-					<% elsif user_signed_in? && i.user.id == current_user.id %>
+					<%= link_to front_post_image_path(i) do %>
+					<p><i class="far fa-comments">コメント</i></p>
+					<% end %>
+				<% elsif user_signed_in? && i.user.id == current_user.id %>
 					<i class="blank"></i>
 				<% end %>
 			</div>
 			<% end %>
 		</div>
+<% if user_signed_in? %>
+		<div class="border-line"></div>
+		<div class="title">
+			<h1>Favorite TOP 5</h1>
+		</div>
+		<div class="rank-list">
+		<li>No.1</li><li>No.2</li><li>No.3</li></div>
+		<div class="rank-list2">
+		<li>No.4</li><li>No.5</li></div>
+		<div class="cooks-ranking">
+			<% @image_ranking.each do |i| %>
+			<div class="cook-images">
+				<div class="image-background">
+					<%= attachment_image_tag i, :image, class: "image"  %>
+						<div class="image-title"><%= i.title %></div>
+					</div>
+				<div class="post-information">
+					<div><%= i.user.name %></div>
+					<div><%= simple_time(i.created_at) %></div>
+				</div>
+				<% if user_signed_in? && i.user.id != current_user.id %>
+					<% if i.favorited_by?(current_user) %>
+					  <p>
+					    <%= link_to front_post_image_favorites_path(i), method: :delete do %>
+					      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					      <div class="favorite-count">
+					      	<%= i.favorites.count %>
+					      	</div>
+					    <% end %>
+					  </p>
+						<% else %>
+					  <p>
+					    <%= link_to front_post_image_favorites_path(i), method: :post do %>
+					      <i class="fa fa-heart" aria-hidden="true">いいねする</i>
+					    <% end %>
+					  </p>
+					<% end %>
+					<%= link_to front_post_image_path(i) do %>
+					<p><i class="far fa-comments">コメント</i></p>
+					<% end %>
+				<% elsif user_signed_in? && i.user.id == current_user.id %>
+					<p class="favorite-count"><%= i.favorites.count %></p>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+		<% end %>
 
 
 

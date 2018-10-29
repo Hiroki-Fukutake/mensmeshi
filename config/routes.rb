@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
   root 'top#index'
   get 'admin/users/top' => 'admin/users#top'
+  # patch 'front/users/:id' => 'front/post_images#update'
+  patch 'front/profile/:id' => 'front/users#update'
+  devise_for :admins
+
   devise_for :users, controllers: {
   	registrations: 'front/registrations',
     sessions: 'front/sessions'
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
   	resources :users
     resources :post_images do
   		resource :favorites, only: [:create, :destroy]
-      resource :post_comments, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
     end
   end
 

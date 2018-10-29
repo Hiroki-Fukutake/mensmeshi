@@ -3,12 +3,18 @@ class Front::UsersController < ApplicationController
   def create
   	@image = PostImage.new(post_image_params)
   	@image.user_id = current_user.id
-    @image.save
-  	redirect_to front_users_path
+     if @image.save
+  	   redirect_to front_users_path
+    else
+      redirect_to front_users_path
+      flash[:error] = @image.errors.full_messages
+    end
   end
   def index
+    puts flash[:error]
+    @user_image = PostImage.find(current_user.post_images.ids)
     @image = PostImage.new
-    @images = PostImage.where(user_id: current_user.id, category: 1).order(created_at: :desc)
+    @home = PostImage.where(user_id: current_user.id, category: 1).order(created_at: :desc)
     @eating_out = PostImage.where(user_id: current_user.id, category: 2).order(created_at: :desc)
     @images_count = PostImage.where(user_id: current_user.id, category: 1)
     @eating_out_count = PostImage.where(user_id: current_user.id, category: 2)
@@ -26,6 +32,13 @@ class Front::UsersController < ApplicationController
     @user = User.find(current_user.id)
     @images_count = PostImage.where(user_id: current_user.id, category: 1)
     @eating_out_count = PostImage.where(user_id: current_user.id, category: 2)
+
+    @post_images = current_user.post_images
+    @count = 0
+    @post_images.each do |p|
+      @favorite = Favorite.where(post_image_id: p.id)
+      @count += @favorite.count
+    end
   end
 
   def update

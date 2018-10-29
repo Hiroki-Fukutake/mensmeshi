@@ -3,32 +3,45 @@
 <%= render 'front/users/user_side' %>
 <div class="container">
 	<div class= "my-images-box col-xs-9">
-		<h1>お家ごはん</h1>
-		<% @images.each do |i| %>
+		<h1>My Cooking Photos</h1>
+		<% if @home.empty? %>
+		<h1>まだ投稿がありません</h1>
+		<% else %>
+		<% @home.each do |i| %>
 			<div class= "myimage-box">
-				<%= link_to edit_front_post_image_path(i) do %>
-				<%= attachment_image_tag i, :image, class: "my-images" %>
-				<% end %>
+					<%= attachment_image_tag i, :image, class: "my-images" %>
 				<div class="mypage-image-title"><%= i.title %></div>
 				<div><%= simple_time(i.created_at) %>
-				<%= link_to "削除", front_user_path(i.id), method: :delete %></div>
+				</div>
+				<div data-id="<%= i.id %>" data-title="<%= i.title %>" data-category="<%= i.category_id %>" data-genre="<%= i.genre_id %>" class="my-image" >
+					<button class="edit-btn">編集する</button>
+					</div>
+					<div class="delete-btn"><%= link_to "削除", front_user_path(i.id), method: :delete,data: {confirm: '本当に削除しますか？'} %></div>
 			</div>
 		<% end %>
+		<% end %>
 		<div class="border"></div>
-		<h1>外食</h1>
-		<%# if @eating_out.nil? %>
+		<h1>Eating Out Photo</h1>
+		<% if @eating_out.empty? %>
+		<h1>まだ投稿がありません</h1>
+		<% else %>
 			<% @eating_out.each do |e| %>
 				<div class="myimage-box">
-					<%= link_to edit_front_post_image_path(e) do %>
 					<%= attachment_image_tag e, :image, class: "my-images" %>
-					<% end %>
 				<div class="mypage-image-title"><%= e.title %></div>
 				<div><%= simple_time(e.created_at) %>
-					<%= link_to "削除", front_user_path(e.id), method: :delete %></div>
+					</div>
+					<div data-id="<%= e.id %>" data-title="<%= e.title %>" data-category="<%= e.category_id %>" data-genre="<%= e.genre_id %>" class="my-image" ><button class="edit-btn">編集する</button>
+						<div class="delete-btn"><%= link_to "削除", front_user_path(e.id), method: :delete %></div>
+				</div>
 				</div>
 			<% end %>
-		<%# else %>
-		<!-- <h1>まだ投稿がありません</h1> -->
-		<%# end %>
+		<% end %>
 	</div>
+	<% if current_user.post_images.empty? %>
+	<% else %>
+	<div class="edit-form-wrappr"><div><button class="close-btn">閉じる</button></div></div>
+		<%= render 'front/post_images/edit' %>
+		<% end %>
 </div>
+

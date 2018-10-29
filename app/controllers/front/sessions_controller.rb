@@ -10,7 +10,6 @@ class Front::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    puts "www"
     self.resource = warden.authenticate!(auth_options)
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)

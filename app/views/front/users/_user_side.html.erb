@@ -1,9 +1,9 @@
 <div class="left-side col-xs-3">
 	<div class="user-name">
-		<div class="profile-name"><%= current_user.name %></div>
 		<div class="profile-image">
-			<%= attachment_image_tag current_user, :profile_image, fallback: 'no_image.jpg', class: "circle" %>
+			<%= attachment_image_tag current_user, :profile_image, fallback: '/images/no_image.jpg', class: "circle" %>
 		</div>
+		<div class="profile-name"><%= current_user.name %></div>
 		<div class="sol">
 			<div class="far fa-thumbs-up"></div>
 			<div class="fas fa-home"></div>

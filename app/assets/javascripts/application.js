@@ -45,11 +45,9 @@ $(function(){
     })(file);
 
     reader.readAsDataURL(file);
-  });
-
+  })
 
 // sign_in sign_up モーダル
-  $(function() {
     $('.modals').click(function(){
       $('.sign-background').show();
       $('.sign-modal-box').fadeIn(1000);
@@ -70,70 +68,56 @@ $(function(){
          $('.sign-in-form').fadeOut(1000);
       }
     })
-  });
 
 
-  // $(function(){
-  //   if ($('.alert').html() !=''){
-  //     $('.sign-background').show();
-  //     $('.sign-modal-box').show();
-  //   if ($(this).hasClass('sign_up')){
-  //     $('.sign-up-form').show();
-  //   } else if($(this).hasClass('sign_in')){
-  //     $('.sign-in-form').show();
-  //   }
-  //   }
-  // });
+// sign_in up のアラート表示　モーダル
 
-
-
-
-  $(function() {
     if ($('.sign-up-alert').html() != '') {
       $('.sign-background').show();
       $('.sign-modal-box').show();
        $('.sign-up-form').show();
 
     }
-  })
-  $(function() {
     if ($('.sign-in-alert').html() != '') {
       $('.sign-background').show();
       $('.sign-modal-box').show();
        $('.sign-in-form').show();
 
     }
-  })
 
 
 // 画像投稿用　モーダル
 
-  $(function() {
     $('.post').click(function(){
       $('.post-wrapper').fadeIn(500);
-      $('.post-wrapper').fadeIn(500);
       $('.post-modal').fadeIn(500);
+
+
     })
     $('.remove-icon').click(function(){
       $('.post-wrapper').fadeOut(500);
       $('.post-modal').fadeOut(500);
     })
-  });
+
+// 画像投稿失敗時　モーダル再表示
+    if ($('.post-alert').html() != null) {
+      $('.post-wrapper').show();
+      $('.post-modal').show();
+      }
+
+
 
 
 // 画像編集　モーダル
 
- $(function(){
-    $('.edit').click(function(){
-      $('.post-edit').fadeIn(500);
-    })
- })
+    // $('.edit').click(function(){
+    //   $('.post-edit').fadeIn(500);
+    // })
 
 
 
 
 // スライドショー
-  $(function(){
     $('.slider').slick({
       autoplay: true,
       autoplaySpeed: 2000,
@@ -141,12 +125,24 @@ $(function(){
       fade: true,
       speed: 5000
     });
+
+// 画像投稿編集　モーダル
+
+$(function() {
+  $(document).on('click','.my-image', function() {
+    $('.edit-form-wrappr').fadeIn(500);
+    $('.edit_post_image').fadeIn(500);
+    $('.title-form').val($(this).data("title"));
+    $('.category-form').val($(this).data("category"));
+    $('.genre-form').val($(this).data("genre"));
+    $('.edit_post_image').attr('action', '/front/post_images/' + $(this).data('id'));
   });
+});
 
-
-
-
-
+  $('.close-btn').click(function(){
+    $('.edit-form-wrappr').fadeOut(500);
+    $('.edit_post_image').fadeOut(500);
+  })
 
 });
 
