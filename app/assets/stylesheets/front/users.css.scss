@@ -154,6 +154,12 @@ button {
 	background-color: #d48b8b;
 }
 
+.edit-box .update-btn {
+	display: block;
+	position: absolute;
+	bottom: 25%;
+}
+
 
 .image-preview {
 	width: 500px;
@@ -170,13 +176,7 @@ button {
 	margin: 0 auto;
 }
 
-.my-image {
-	/*display: inline-block;
-	height: 20px;
-	width: 80px;
-	background-color: #b7882e70;
-	border-radius: 10%;*/
-}
+
 
 .mypage-image-title {
 	overflow: scroll;
@@ -202,11 +202,6 @@ button {
 	margin: 0 auto 10px auto;
 }
 
-/*.title-form {
-	width: 300px;
-	padding-bottom: 5px;
-}*/
-
 
 .image-field select {
 	margin: 0 0 10px 0;
@@ -219,8 +214,22 @@ button {
 .edit-age-form {
 	width: 60px;
 }
+.leave-btn {
+	background-color: red;
+	margin-top:200px;
+}
 
+.leave-btn a{
+	color: #fff;
+}
 
+.btn-danger {
+	margin-top: 20px;
+}
+
+.btn-danger a {
+	color: #fff;
+}
 
 
 /*post-modal*/
@@ -267,6 +276,18 @@ button {
 	cursor:pointer;
 }
 
+.image-field .post_label{
+	border:1px solid #fff;
+	color: #fff;
+	width: 90%;
+}
+.profile_edit_label {
+	border:1px solid #fff;
+	color: #fff;
+	position: absolute;
+	left: 3%;
+	bottom: 35%;
+}
 /*post-edit モーダル*/
 
 .edit_post_image {
@@ -332,6 +353,27 @@ button {
 	width: 80px;
 }
 
+.destroy-box {
+	margin-left: 320px;
+	text-align: center;
 
+}
+
+@media screen and (max-width: 425px) {
+
+
+	.edit-box .update-btn {
+		position: relative;
+	}
+	.profile_edit_label {
+		position: relative;
+		left: 0;
+	}
+	.destroy-box {
+		width: 100%;
+		margin:0;
+		height: 40vh;
+	}
+}
 
 

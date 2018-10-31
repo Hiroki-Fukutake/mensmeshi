@@ -1,0 +1,10 @@
+<%= render 'front/users/user_side' %>
+<div class="destroy-box col-xs-9">
+<h1>退会画面</h1>
+<div>
+	当サイトをご利用いただき誠にありがとうございます。<br>
+	下記のボタンから退会処理を行えます。<br>
+	退会されますとお客様のアカウント情報が完全に削除されます。<br>
+
+<div class="btn btn-danger"><%= link_to "退会する", front_post_image_path(@user), method: :delete, data: {confirm: "本当に退会しますか？"} %></div>
+</div>

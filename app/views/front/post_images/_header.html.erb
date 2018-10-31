@@ -1,10 +1,10 @@
 <div class="header">
 	<div class = "header-image">
 		<%= link_to image_tag("/images/img/header-logo.jpg"), root_path %>
+		</div>
 		<% if user_signed_in? %>
 		<div class="current_user_name">ようこそ　<span><%= current_user.name %></span>　さん</div>
 		<% end %>
-	</div>
 
 	<% if user_signed_in? %>
 	<input type='checkbox' id='mmeennuu'>

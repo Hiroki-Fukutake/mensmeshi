@@ -19,6 +19,11 @@ class Front::PostImagesController < ApplicationController
     user_image.update(post_update_params)
     redirect_to front_users_path
   end
+  def destroy
+    @user = current_user
+    @user.delete
+    redirect_to root_path
+  end
 
   private
   def post_comment_params

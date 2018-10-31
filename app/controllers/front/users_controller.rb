@@ -47,6 +47,18 @@ class Front::UsersController < ApplicationController
     redirect_to front_users_path(@user.id)
   end
 
+  def delete
+    @user = current_user.id
+    @images_count = PostImage.where(user_id: current_user.id, category: 1)
+    @eating_out_count = PostImage.where(user_id: current_user.id, category: 2)
+    @post_images = current_user.post_images
+    @count = 0
+    @post_images.each do |p|
+      @favorite = Favorite.where(post_image_id: p.id)
+      @count += @favorite.count
+    end
+  end
+
   def destroy
     @image = PostImage.find(params[:id])
     @image.destroy

@@ -12,8 +12,13 @@
 			<div class="profile-preview preview" >
 				<div class="preview-comment">Previewが表示されます</div>
 			</div>
-			<%= f.attachment_field :profile_image %>
-			<%= f.submit "update", class: "btn btn-default" %>
+			<label for="user_profile_image" class="profile_edit_label">
+				＋画像を選択してください
+			<%= f.attachment_field :profile_image, :style => "display:none;" %>
+			</label>
+			<%= f.submit "update", class: "update-btn btn btn-default" %>
 			<% end %>
+			<div class="leave-btn btn btn-default">
+			<%= link_to "退会はこちらから", front_users_delete_path %></div>
 		</div>
 </div>

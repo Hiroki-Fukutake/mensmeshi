@@ -30,10 +30,12 @@
 }
 .current_user_name {
     display: inline-block;
-    margin: 19px 0 0 250px;
+    position: absolute;
+    top: 55%;
+    left: 18%;
     color: #ffffff;
 }
-span {
+.current-user-name span {
     font-size: 20px;
 }
 
@@ -434,3 +436,206 @@ $red:#F44336;
         }
     }
 }
+
+/*レスポンシブ対応*/
+
+
+@media screen and (max-width: 425px) {
+
+
+    .top-page-image img {
+        width: 414px;
+    }
+    .header {
+        height: 120px;
+        width: 414px;
+    }
+
+    #mmeennuu:checked ~ .menu {
+        width: 98%;
+    }
+
+    .menu {
+        top:55%;
+        right: 1%;
+
+
+         div.barry {
+
+
+            .bar {
+            }
+        }
+
+        ul {
+            width: 100%;
+
+        }
+    }
+
+
+    .title h1 {
+        margin-top: 90px;
+    }
+
+    .cooks {
+        width: 100%;
+    }
+
+    .cook-images {
+        width: 90%;
+    }
+    .cook-images img {
+        width: 90%;
+    }
+
+    .image-background {
+        width: 100%;
+        height: 100%;
+    }
+    .post-information {
+        font-size: 20px;
+    }
+    .fa-heart {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .fa-comments {
+        font-size: 20px;
+    }
+    .current_user_name {
+        top: 25%;
+        left: 52%;
+        font-size: 10px;
+    }
+
+    .current_user_name span {
+        font-size: 15px;
+    }
+
+    .cooks-ranking {
+        width: 100%;
+    }
+    .rank-list, .rank-list2 {
+        display: none;
+    }
+    .favorite-count {
+        font-size: 20px;
+    }
+    .image-title {
+        font-size: 20px;
+        width: 100%
+    }
+    .border-line {
+        width: 100%;
+    }
+    .left-side {
+        position: inherit;
+        width: 100%;
+    }
+    .my-images-box {
+        position: inherit;
+        width: 100%;
+        text-align: center;
+    }
+    .myimage-box {
+        width: 100%;
+        margin: 0 !important;
+    }
+    .my-images-title {
+        width: 100%;
+    }
+    .mypage-image-title {
+        margin: 0 auto;
+    }
+    .edit-delete-box {
+        width: 55%;
+        display: inline-block;
+    }
+    .edit-form-wrappr {
+        top:50% !important;
+        left: 6% !important;
+        width: 90% !important;
+    }
+    .edit_post_image {
+        top: 50% !important;
+        left: 5% !important;
+        width: 90% !important;
+    }
+    .edit_post_image .btn {
+        margin-top: 10px;
+    }
+
+    .edit_post_image label {
+        margin-top: 10px;
+    }
+    .title-label {
+        width: 100%;
+        display: block;
+    }
+    .title-form {
+        margin: 0 auto !important;
+        width: 70% !important;
+    }
+    .category-form, .genre-form {
+        margin: 0 auto !important;
+        width: 50% !important;
+    }
+    .close-btn {
+        left:  0 !important;
+        width: 100% !important;
+    }
+    .post-box {
+        width: 100% !important;
+    }
+    .image-field {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 95%;
+    }
+
+    .new_post_image select {
+        margin-top: 10px !important;
+        border: 1px solid #fff;
+    }
+    #post_image_image {
+        border:1px solid #fff;
+    }
+    .image-preview {
+        margin:0 auto !important;
+        width: 90% !important;
+    }
+    .image-preview img {
+        width: 85% !important;
+        margin: 0 auto;
+    }
+
+    .edit-box {
+        width: 100%;
+        position: inherit !important;
+        height: 100% !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root 'top#index'
   get 'admin/users/top' => 'admin/users#top'
-  # patch 'front/users/:id' => 'front/post_images#update'
   patch 'front/profile/:id' => 'front/users#update'
+  get 'front/users/delete' => 'front/users#delete'
   devise_for :admins
 
   devise_for :users, controllers: {

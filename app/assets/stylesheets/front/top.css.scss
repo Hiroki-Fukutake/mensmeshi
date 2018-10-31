@@ -7,21 +7,14 @@
 	background-color: #000000;
 	height: 100vh;
 }
-.top-image {
-	width: 100%;
-	text-align: center;
-}
-.top-image img {
-	border-radius: 0;
-	width: auto;
-}
+
 .slider {
 	margin-bottom: 0;
 }
 .slider img {
-	width: auto;
 	height: 700px;
 	margin: 0 auto;
+	object-fit: contain;
 }
 .slider-top {
 	width: 900px;
@@ -43,3 +36,17 @@
 	background-size: contain;
 }
 
+
+@media screen and (max-width: 425px) {
+
+	.slider-top {
+		width: 100%;
+	}
+	.slider {
+		height: 500px;
+	}
+	.slider img {
+		height: 400px;
+	}
+
+}

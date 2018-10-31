@@ -13,10 +13,13 @@
 				<div class="mypage-image-title"><%= i.title %></div>
 				<div><%= simple_time(i.created_at) %>
 				</div>
-				<div data-id="<%= i.id %>" data-title="<%= i.title %>" data-category="<%= i.category_id %>" data-genre="<%= i.genre_id %>" class="my-image" >
-					<button class="edit-btn">編集する</button>
+				<div class="edit-delete-box">
+					<div data-id="<%= i.id %>" data-title="<%= i.title %>" data-category="<%= i.category_id %>" data-genre="<%= i.genre_id %>" class="my-image" >
+						<button class="edit-btn">編集する</button>
 					</div>
-					<div class="delete-btn"><%= link_to "削除", front_user_path(i.id), method: :delete,data: {confirm: '本当に削除しますか？'} %></div>
+					<div class="delete-btn"><%= link_to "削除", front_user_path(i.id), method: :delete,data: {confirm: '本当に削除しますか？'} %>
+					</div>
+				</div>
 			</div>
 		<% end %>
 		<% end %>
