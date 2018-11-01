@@ -25,6 +25,9 @@ class Front::PostImagesController < ApplicationController
     redirect_to root_path
   end
 
+  def about
+  end
+
   private
   def post_comment_params
     params.require(:post_comment).permit(:comment, :user_id, :image_id)

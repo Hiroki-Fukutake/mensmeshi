@@ -5,18 +5,18 @@
 		<div class="edit-box col-xs-9">
 			<h1>Profile_edit</h1>
 			<%= form_for(@user, url: front_user_path(@user)) do |f| %>
-			<%= f.label :name, "name" %>
-			<%= f.text_field :name, class: "edit-name-form form-control" %>
-			<%= f.label :age, "age" %>
-			<%= f.number_field :age, class: "edit-age-form form-control" %>
-			<div class="profile-preview preview" >
-				<div class="preview-comment">Previewが表示されます</div>
-			</div>
-			<label for="user_profile_image" class="profile_edit_label">
-				＋画像を選択してください
-			<%= f.attachment_field :profile_image, :style => "display:none;" %>
-			</label>
-			<%= f.submit "update", class: "update-btn btn btn-default" %>
+				<%= f.label :name, "name" %>
+				<%= f.text_field :name, class: "edit-name-form form-control" %>
+				<%= f.label :age, "age" %>
+				<%= f.number_field :age, class: "edit-age-form form-control" %>
+				<div class="profile-preview preview" >
+					<div class="preview-comment">Previewが表示されます</div>
+				</div>
+				<label for="user_profile_image" class="profile_edit_label">
+					＋画像を選択してください
+					<%= f.attachment_field :profile_image, :style => "display:none;" %>
+				</label>
+				<%= f.submit "update", class: "update-btn btn btn-default" %>
 			<% end %>
 			<div class="leave-btn btn btn-default">
 			<%= link_to "退会はこちらから", front_users_delete_path %></div>

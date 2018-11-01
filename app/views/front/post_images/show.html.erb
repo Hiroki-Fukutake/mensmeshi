@@ -12,7 +12,7 @@
 	<div class="comment-box">
 	<%= form_for [@image, @comment], url: front_post_image_post_comments_path(@image.id) do |c| %>
 		<%= c.text_field :comment, class: "form-control" %>
-		<%= c.submit "コメントする" %>
+		<%= c.submit "コメントする", class: "btn btn-default" %>
 		<div class="comment-error" style="color:red;"><%= flash[:error] %></div>
 	<% end %>
 	</div>
@@ -24,9 +24,11 @@
 			<div class="comment-information">
 				<div class="comment-name"><%= comment.user.name %></div>
 				<div class="comment-time"><%= simple_time(comment.created_at) %></div>
+				<% if comment.user.id == current_user.id %>
 				<div class="comment-delete">
 					<%= link_to "コメント削除", front_post_image_post_comment_path(@image,comment), method: :delete, data: {confirm: '本当に削除しますか？'} %>
 				</div>
+				<% end %>
 			</div>
 
 		<% end %>

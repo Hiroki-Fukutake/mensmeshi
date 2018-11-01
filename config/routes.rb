@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'admin/users/top' => 'admin/users#top'
   patch 'front/profile/:id' => 'front/users#update'
   get 'front/users/delete' => 'front/users#delete'
+  get 'front/post_images/about'
   devise_for :admins
 
   devise_for :users, controllers: {

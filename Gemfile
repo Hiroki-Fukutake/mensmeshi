@@ -72,5 +72,4 @@ gem 'hirb'
 gem 'hirb-unicode'
 gem 'jquery-slick-rails'
 gem 'seed-fu'
-gem 'active_hash'
 
