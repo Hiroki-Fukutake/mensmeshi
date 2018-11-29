@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	before_action :store_user_location!, if: :storable_location?
 	before_action :configure_permitted_parameters, if: :devise_controller?
-	before_action :authenticate_user!, except: [:index]
+	before_action :authenticate_user!, except: [:index, :about]
 
 
 	def after_sign_up_path_for(resource)
