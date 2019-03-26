@@ -415,7 +415,6 @@ footer .about {
 
 /*Toggle menu*/
 
-$lred:#E57373;
 $red:#F44336;
 
 @mixin transition($in) {
@@ -425,8 +424,6 @@ $red:#F44336;
     -o-transition:$in;
     -ms-transition:$in;
 }
-
-
 
 #mmeennuu {
     display:none;
@@ -466,7 +463,6 @@ $red:#F44336;
     div.barry {
         width:40px;
         margin:12px 5px;
-
 
         .bar {
             display:block;
